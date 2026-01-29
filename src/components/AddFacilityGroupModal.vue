@@ -252,11 +252,15 @@ export default defineComponent({
 
       this.filteredFacilityGroupsByType = Object.values(this.facilityGroupsByType).reduce((filteredGroups: any, groups: any) => {
         groups.map((group: any) => {
-          if(group.facilityGroupId.toLowerCase().includes(keyword) || group.facilityGroupName.toLowerCase().includes(keyword)) {
-            if(filteredGroups[group.facilityGroupTypeId]) {
-              filteredGroups[group.facilityGroupTypeId].push(group)
+          const groupId = group.facilityGroupId ? group.facilityGroupId.toLowerCase() : '';
+          const groupName = group.facilityGroupName ? group.facilityGroupName.toLowerCase() : '';
+
+          if (groupId.includes(keyword) || groupName.includes(keyword)) {
+            const groupTypeId = group?.facilityGroupTypeId;
+            if (filteredGroups[groupTypeId]) {
+              filteredGroups[groupTypeId].push(group)
             } else {
-              filteredGroups[group.facilityGroupTypeId] = [group]
+              filteredGroups[groupTypeId] = [group]
             }
           }
         })
