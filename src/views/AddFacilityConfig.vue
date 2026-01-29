@@ -70,7 +70,7 @@
               <ion-toggle v-model="fulfillmentSettings.PICKUP">{{ translate("Allow pickup") }}</ion-toggle>
             </ion-item>
             <ion-item>
-              <ion-toggle v-model="fulfillmentSettings.OMS_FULFILLMENT" @ionChange="createLoginCreds">{{ translate("Uses native fulfillment app") }}</ion-toggle>
+              <ion-toggle v-model="fulfillmentSettings.OMS_FULFILLMENT" @ionChange="createLoginCreds = fulfillmentSettings.OMS_FULFILLMENT">{{ translate("Uses native fulfillment app") }}</ion-toggle>
             </ion-item>
             <template v-if="fulfillmentSettings.OMS_FULFILLMENT">
               <ion-item>
