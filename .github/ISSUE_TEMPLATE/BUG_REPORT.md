@@ -56,6 +56,6 @@ body:
       description: |
         Links? References? Anything that will give us more context about the issue you are encountering!
   
-        Tip: Attach scrrenshots or recording that can help in solving this issue quickly.
+        Tip: Attach screenshots or recording that can help in solving this issue quickly.
     validations:
       required: false
