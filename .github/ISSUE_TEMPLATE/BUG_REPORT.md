@@ -5,7 +5,7 @@ body:
   - type: textarea
     id: current-behaviour
     attributes:
-      label: Current Behaviour
+      label: Current Behavior
       description: How the feature currently works? Describe the current behavior pointing exactly why it's not working as intended.
     validations:
       required: true
