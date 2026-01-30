@@ -56,7 +56,7 @@
       </ion-item-divider>
       <ion-item>
         <ion-input :label="translate('Contact number')" :label-placement="telecomNumberValue?.countryCode ? 'stacked' : 'floating'" v-model="telecomNumberValue.contactNumber">
-          <ion-text slot="start" v-if="telecomNumberValue?.countryCode">{{ telecomNumberValue?.countryCode }}</ion-text>
+          <ion-text slot="start" v-if="telecomNumberValue?.countryCode && telecomNumberValue?.contactNumber">{{ telecomNumberValue?.countryCode }}</ion-text>
         </ion-input>
       </ion-item>
       <ion-item>
@@ -284,7 +284,7 @@ export default defineComponent({
         : true
     },
     isTelecomNumberUpdated() {
-      return this.telecomNumberValue?.contactNumber && JSON.stringify(this.telecomNumberValue.contactNumber) !== JSON.stringify(this.contactDetails?.telecomNumber?.contactNumber)
+      return !Object.is(this.telecomNumberValue?.contactNumber, this.contactDetails?.telecomNumber?.contactNumber)
     },
     isEmailAddressUpdated() {
       return this.emailAddress?.infoString && JSON.stringify(this.emailAddress.infoString) !== JSON.stringify(this.contactDetails?.emailAddress?.infoString);

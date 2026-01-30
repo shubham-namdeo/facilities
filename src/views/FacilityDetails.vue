@@ -58,7 +58,7 @@
                     <h3>{{ postalAddress.directions }}</h3>
                     <p class="ion-text-wrap">{{ postalAddress.postalCode ? `${postalAddress.city}, ${postalAddress.postalCode}` : postalAddress.city }}</p>
                     <p class="ion-text-wrap">{{ postalAddress.countryGeoName ? `${postalAddress.stateGeoName}, ${postalAddress.countryGeoName}` : postalAddress.stateGeoName }}</p>
-                    <p class="ion-text-wrap" v-if="contactDetails?.telecomNumber">{{ `${contactDetails.telecomNumber?.countryCode}-${contactDetails.telecomNumber?.contactNumber}` }}</p>
+                    <p class="ion-text-wrap" v-if="contactDetails?.telecomNumber?.contactNumber">{{ [contactDetails.telecomNumber.countryCode, contactDetails.telecomNumber.contactNumber].filter(Boolean).join('-') }}</p>
                     <p class="ion-text-wrap" v-if="contactDetails?.emailAddress">{{ contactDetails.emailAddress?.infoString }}</p>
                   </ion-label>
                 </ion-item>
