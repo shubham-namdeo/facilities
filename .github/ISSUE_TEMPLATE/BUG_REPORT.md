@@ -42,6 +42,7 @@ body:
     validations:
       required: true
   - type: dropdown
+    id: can-handle-fix
     attributes:
       label: Can you handle fixing this bug by yourself?
       options:
