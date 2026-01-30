@@ -12,7 +12,7 @@ body:
   - type: textarea
     id: expected-behaviour
     attributes:
-      label: Expected Behaviour
+      label: Expected Behavior
       description: Tell us how it should behave?
     validations:
       required: true
