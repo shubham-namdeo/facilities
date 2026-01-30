@@ -17,6 +17,7 @@ body:
     validations:
       required: true
   - type: textarea
+    id: steps-to-reproduce
     attributes:
       label: Steps To Reproduce
       description: Please provide the steps to reproduce and if possible a minimal reproducible example of the problem.
