@@ -1,31 +1,60 @@
----
-name: Bug report
-about: Create a report to help us improve
-labels: bug
----
-
-## Current behavior
-<!--  Describe the current behavior pointing exactly why it's not working as intended. -->
-
-
-## Expected behavior
-<!-- Describe what the desired behavior should be. -->
-
-
-## Steps to reproduce the issue
-<!-- Please provide the steps to reproduce and if possible a *minimal reproducible example* of the problem -->
-
-
-## Can you handle fixing this bug by yourself?
-
-- [ ] YES
-- [ ] NO
-
-## Environment details
-<!-- Please provide all the informations required below. -->
-- Browser: <!-- Your browser, version -->
-- OS: <!-- Your operating system, version -->
-- Code Version: <!-- Tag, branch or commit determining which version of code is used -->
-
-## Additional information
-<!-- If you think that any additional information would be useful, please provide them here. -->
+name: Bug Report
+description: Create a report to help us improve
+labels: ["bug"]
+body:
+  - type: textarea
+    id: current-behaviour
+    attributes:
+      label: Current Behaviour
+      description: How the feature currently works? Describe the current behavior pointing exactly why it's not working as intended.
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behaviour
+    attributes:
+      label: Expected Behaviour
+      description: Tell us how it should behave?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps To Reproduce
+      description: Please provide the steps to reproduce and if possible a minimal reproducible example of the problem.
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. Check behaviour '...'
+    validations:
+      required: true
+  - type: input
+    id: app-environment
+    attributes:
+      label: App Environment
+      placeholder: Prod/UAT/Dev/latest[main branch]
+    validations:
+      required: true
+  - type: input
+    id: app-version
+    attributes:
+      label: App Version
+      placeholder: v1.0.0
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Can you handle fixing this bug by yourself?
+      options:
+        - 'Yes'
+        - 'No'
+      default: 1
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional Information
+      description: |
+        Links? References? Anything that will give us more context about the issue you are encountering!
+  
+        Tip: Attach scrrenshots or recording that can help in solving this issue quickly.
+    validations:
+      required: false
