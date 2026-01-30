@@ -284,7 +284,7 @@ export default defineComponent({
         : true
     },
     isTelecomNumberUpdated() {
-      return JSON.stringify(this.telecomNumberValue?.contactNumber) !== JSON.stringify(this.contactDetails?.telecomNumber?.contactNumber)
+      return !Object.is(this.telecomNumberValue?.contactNumber, this.contactDetails?.telecomNumber?.contactNumber)
     },
     isEmailAddressUpdated() {
       return this.emailAddress?.infoString && JSON.stringify(this.emailAddress.infoString) !== JSON.stringify(this.contactDetails?.emailAddress?.infoString);
