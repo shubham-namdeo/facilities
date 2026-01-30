@@ -24,7 +24,7 @@ body:
       placeholder: |
         1. Go to ...
         2. Click ...
-        3. Check behaviour '...'
+        3. Check behavior '...'
     validations:
       required: true
   - type: input
