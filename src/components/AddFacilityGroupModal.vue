@@ -9,7 +9,7 @@
       <ion-title>{{ translate("Add Group") }}</ion-title>
     </ion-toolbar>
     <ion-toolbar>
-      <ion-searchbar v-model="queryString" @keyup.enter="queryString = $event.target.value; findGroups()"/>
+      <ion-searchbar v-model="queryString" @keyup.enter="queryString = $event.target.value; findGroups()" @ionClear="queryString = ''; findGroups()"/>
     </ion-toolbar>
   </ion-header>
 
