@@ -258,7 +258,7 @@ export default defineComponent({
           const groupName = group.facilityGroupName ? group.facilityGroupName.toLowerCase() : '';
 
           if (groupId.includes(keyword) || groupName.includes(keyword)) {
-            const groupTypeId = group?.facilityGroupTypeId || 'Others';
+            const groupTypeId = group?.facilityGroupTypeId;
             if (filteredGroups[groupTypeId]) {
               filteredGroups[groupTypeId].push(group)
             } else {
