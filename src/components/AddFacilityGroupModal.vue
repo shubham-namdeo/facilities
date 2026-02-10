@@ -8,10 +8,12 @@
       </ion-buttons>
       <ion-title>{{ translate("Add Group") }}</ion-title>
     </ion-toolbar>
+    <ion-toolbar>
+      <ion-searchbar v-model="queryString" @keyup.enter="queryString = $event.target.value; findGroups()" @ionClear="queryString = ''; findGroups()"/>
+    </ion-toolbar>
   </ion-header>
 
   <ion-content>
-    <ion-searchbar v-model="queryString" @keyup.enter="queryString = $event.target.value; findGroups()"/>
     <div class="empty-state" v-if="!Object.keys(filteredFacilityGroupsByType).length || isSearching">
       <p>{{ translate("No facility groups found") }}</p>
     </div>
@@ -252,11 +254,15 @@ export default defineComponent({
 
       this.filteredFacilityGroupsByType = Object.values(this.facilityGroupsByType).reduce((filteredGroups: any, groups: any) => {
         groups.map((group: any) => {
-          if(group.facilityGroupId.toLowerCase().includes(keyword) || group.facilityGroupName.toLowerCase().includes(keyword)) {
-            if(filteredGroups[group.facilityGroupTypeId]) {
-              filteredGroups[group.facilityGroupTypeId].push(group)
+          const groupId = group.facilityGroupId ? group.facilityGroupId.toLowerCase() : '';
+          const groupName = group.facilityGroupName ? group.facilityGroupName.toLowerCase() : '';
+
+          if (groupId.includes(keyword) || groupName.includes(keyword)) {
+            const groupTypeId = group?.facilityGroupTypeId;
+            if (filteredGroups[groupTypeId]) {
+              filteredGroups[groupTypeId].push(group)
             } else {
-              filteredGroups[group.facilityGroupTypeId] = [group]
+              filteredGroups[groupTypeId] = [group]
             }
           }
         })
